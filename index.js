@@ -56,6 +56,6 @@ app.use('/api/items', itemsRouter)
 app.use('/api/users', usersRouter)
 
 
-app.listen(`${stage.port}`, () => {
+app.listen(`${stage.port} || 3000`, () => {
   console.log(`Server now listening at localhost:${stage.port}`)
 })
