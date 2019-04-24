@@ -1,4 +1,3 @@
-
 const jwt = require('jsonwebtoken')
 
 module.exports = {
@@ -20,7 +19,7 @@ module.exports = {
                 res.status(status).send(result) //check this one, is rep
             }
         } else {
-            result = {
+            result = { 
                 error: `Forbidden. Authentication error. Token required.`,
                 success: false
             }

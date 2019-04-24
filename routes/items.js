@@ -1,15 +1,15 @@
 const express = require('express')
 const router = express.Router()
 
-// const {} = require('../controllers/ItemsController')  
+const {
+    getItemsByQuery,
+    newItem
+} = require('../controllers/itemsController')  
 
-// GET all items
-router.get('/', (req, res) => {
-    res.send('all items')
-})
-// GET specific item
-router.get('/:id', (req, res) => {
-    res.send('single item')
-})
+
+// GET items - by querying
+router.get('/', getItemsByQuery)
+// POST create item create
+router.post('/', newItem)
 
 module.exports = router

@@ -5,9 +5,6 @@ const logger = require('morgan')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
-const cors = require('cors')
-
-
 const indexRouter = require('./routes/index')
 const itemsRouter = require('./routes/items')
 const usersRouter = require('./routes/users')
@@ -24,7 +21,6 @@ const stage = require('./config')[environment]
 
 // middlewares
 
-app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -41,11 +37,11 @@ app.use((req, res, next) => {
 
 // connect to DB
 mongoose
-  .connect(DB_URI, {
+  .connect(DB_URI, { 
     useCreateIndex: true,
     useNewUrlParser: true,
     useFindAndModify: false
-  })
+   })
   .then(console.log('Successful connection to database'))
   .catch(error => {
     console.log(`The following error occurred: ${error.message}`)

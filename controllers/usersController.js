@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 module.exports = {
     create: async (req, res) => {
-        let result
+        let result 
         let status
         try {
             req.body.password = await bcrypt.hash(req.body.password, 10)
@@ -16,7 +16,7 @@ module.exports = {
                 user: user.username
             }
             status = 200
-        } catch (err) {
+        } catch(err) {
             result = {
                 error: err.message,
                 success: false,
@@ -27,8 +27,8 @@ module.exports = {
         res.status(status).send(result)
     },
     authenticate: async (req, res) => {
-        let result
-        let status
+        let result 
+        let status 
         //try to re-build
         // try {
         //     let response
@@ -40,7 +40,7 @@ module.exports = {
         // }
         try {
             const user = await User.findOne({ username: req.body.params.username })
-            if (!user) {
+            if(!user) {
                 status = 404
                 result = {
                     error: 'User not found',
@@ -48,7 +48,7 @@ module.exports = {
                 }
             } else {
                 const match = await bcrypt.compare(req.body.params.password, user.password)
-                if (!match) {
+                if(!match) {
                     status = 401
                     result = {
                         error: 'Authentication error',
@@ -56,18 +56,18 @@ module.exports = {
                     }
                 } else {
                     const token = await jwt.sign(
-                        { user: user.username },
+                        { user: user.username }, 
                         process.env.JWT_SECRET,
-                        { expiresIn: '12h' }
+                        { expiresIn: '12h'}
                     )
                     status = 200
-                    result = {
+                    result = { 
                         success: true,
                         token
                     }
                 }
             }
-        } catch (err) {
+        } catch(err) {
             status = 500
             result = {
                 error: err.message,
