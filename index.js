@@ -15,7 +15,7 @@ const ticketsRouter = require('./routes/tickets')
 
 const DB_URI = process.env.MONGO_LOCAL_CONN_URL
 
-const FRONTEND_URI = `http://localhost:3000` // CHANGE THIS!!!
+const FRONTEND_URI = `https://uploading-recycling-frontend.herokuapp.com` // CHANGE THIS!!!
 
 const app = express()
 
