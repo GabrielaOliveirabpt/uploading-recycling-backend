@@ -1,24 +1,15 @@
 const express = require('express')
 const router = express.Router()
 
-const {
-    index,
-    newItem,
-    getItem,
-    editItem,
-    removeItem
-} = require('../controllers/itemsController')  
+// const {} = require('../controllers/ItemsController')  
 
-
-// GET items - by querying
-router.get('/', index)
-// POST create item create
-router.post('/', newItem)
+// GET all items
+router.get('/', (req, res) => {
+    res.send('all items')
+})
 // GET specific item
-router.get('/:id', getItem)
-// PATCH edit item
-router.patch('/:id', editItem)
-// DELETE item
-router.delete('/:id', removeItem)
+router.get('/:id', (req, res) => {
+    res.send('single item')
+})
 
 module.exports = router
