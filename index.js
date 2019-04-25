@@ -15,8 +15,6 @@ const ticketsRouter = require('./routes/tickets')
 
 const DB_URI = process.env.MONGO_LOCAL_CONN_URL
 
-const FRONTEND_URI = `http://localhost:3000` // CHANGE THIS!!!
-
 const app = express()
 
 const environment = process.env.NODE_ENV // development
