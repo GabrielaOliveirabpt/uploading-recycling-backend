@@ -2,11 +2,11 @@ const express = require('express')
 const router = express.Router()
 const validateToken = require('../middlewares').validateToken
 
-const {
+const { 
     getItems,
     removeItem,
     editItem
-} = require('../controllers/ticketsController')
+} = require('../controllers/ticketsController')  
 
 // GET items and tickets
 router.get('/', validateToken, getItems)
